@@ -1,15 +1,18 @@
-#include <string>
+#include "Shape.h"
 
-#ifndef SHAPE_H
-#define SHAPE_H
+#ifndef SHAPE2D_H
+#define SHAPE2D_H
 
-class Shape {
+class Shape2D : public Shape {
 private:
-
+    virtual void CalculateArea() = 0;
+    float area = 0;
 public:
-    virtual void Scale(float ScaleFactor) = 0;
-    virtual void ShowInfo() = 0;
-    virtual std::string GetName() = 0;
+    float GetArea() const;
+    void SetArea(float area_);
+    bool operator>(const Shape2D& other) const;
+    bool operator<(const Shape2D& other) const;
+    bool operator==(const Shape2D& other) const;
 };
 
 #endif
